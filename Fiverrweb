@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiwa Web Design | Professional Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4F7942;
+            --secondary: #74A662;
+            --accent: #5D9C59;
+            --light: #F8F8F8;
+            --dark: #1A1A1A;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .leaf-bg {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23e8f5e9" d="M50,15Q40,30 35,50Q30,70 50,85Q70,70 65,50Q60,30 50,15Z" /></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200%;
+        }
+        
+        @media (max-width: 768px) {
+            .leaf-bg {
+                background-size: 300%;
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-gray-50 to-green-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <span class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white font-bold">T</span>
+                <span class="text-2xl font-bold text-green-700">Tiwa Web Design</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-green-700">Home</a>
+                <a href="#services" class="nav-link text-gray-700 hover:text-green-700">Services</a>
+                <a href="#portfolio" class="nav-link text-gray-700 hover:text-green-700">Portfolio</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-green-700">Contact</a>
+            </div>
+            
+            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white w-full" id="mobile-menu">
+            <div class="px-2 pt-2 pb-4 space-y-2">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Services</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Portfolio</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-28 pb-16 px-6 md:pt-36 md:pb-24">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 md:pr-10 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">
+                    Professional Web Development for <span class="text-green-700">Your Business</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8">
+                    Crafting beautiful, responsive websites that help your business grow in 2025's digital landscape. Professional yet affordable solutions tailored for small businesses.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition duration-300 text-center">
+                        Get Started
+                    </a>
+                    <a href="#portfolio" class="px-6 py-3 border border-green-600 text-green-600 rounded-lg font-medium hover:bg-green-50 transition duration-300 text-center">
+                        View Work
+                    </a>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 relative">
+                <div class="leaf-bg w-full h-full absolute -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Web Design Illustration" class="w-full h-auto rounded-xl shadow-xl floating">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Expert web development services to establish your online presence in 2025
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-green-50 rounded-xl p-8 hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-laptop-code text-2xl text-green-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Custom Web Design</h3>
+                    <p class="text-gray-600">
+                        Beautiful, responsive websites built with modern HTML5, CSS3, and JavaScript to showcase your brand.
+                    </p>
+                </div>
+                
+                <div class="bg-green-50 rounded-xl p-8 hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-mobile-alt text-2xl text-green-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Mobile-First Approach</h3>
+                    <p class="text-gray-600">
+                        Designs that look great and function perfectly on all devices, from smartphones to desktops.
+                    </p>
+                </div>
+                
+                <div class="bg-green-50 rounded-xl p-8 hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-search-dollar text-2xl text-green-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">SEO Optimization</h3>
+                    <p class="text-gray-600">
+                        Websites built with search engines in mind to help your business get found online.
+                    </p>
+                </div>
+                
+                <div class="bg-green-50 rounded-xl p-8 hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-tachometer-alt text-2xl text-green-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Performance Focused</h3>
+                    <p class="text-gray-600">
+                        Lightning-fast websites that keep visitors engaged and improve conversion rates.
+                    </p>
+                </div>
+                
+                <div class="bg-green-50 rounded-xl p-8 hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-paint-brush text-2xl text-green-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">UI/UX Design</h3>
+                    <p class="text-gray-600">
+                        Intuitive interfaces designed to provide the best user experience for your customers.
+                    </p>
+                </div>
+                
+                <div class="bg-green-50 rounded-xl p-8 hover:shadow-md transition duration-300">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-headset text-2xl text-green-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Ongoing Support</h3>
+                    <p class="text-gray-600">
+                        Reliable maintenance and support to keep your website running smoothly in 2025 and beyond.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 px-6 bg-gradient-to-b from-white to-green-50">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Office workspace" class="w-full h-auto rounded-xl shadow-lg">
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">About Tiwa Web Design</h2>
+                    <p class="text-gray-600 mb-6">
+                        In today's digital world of 2025, your website is often the first impression customers have of your business. At Tiwa Web Design, we specialize in creating professional, affordable websites that help small businesses establish a strong online presence.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        With a focus on clean design, intuitive navigation, and mobile responsiveness, we build websites that not only look great but also drive results. Whether you need a simple brochure site or a more complex web application, we have the expertise to bring your vision to life.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class="fas fa-check text-xl text-green-700"></i>
+                        </div>
+                        <p class="text-gray-600">
+                            <span class="font-bold text-green-700">100+</span> successful projects completed
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Featured Work</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Browse our curated selection of web design projects from 2025
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="E-commerce Website" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full mb-2">E-commerce</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">GreenLeaf Boutique</h3>
+                        <p class="text-gray-600 mb-4">
+                            A fully responsive online store with product filtering, cart functionality, and secure checkout.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">HTML5</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">CSS3</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Restaurant Website" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full mb-2">Restaurant</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Bella Cucina</h3>
+                        <p class="text-gray-600 mb-4">
+                            An elegant restaurant website with online reservations, menu display, and gallery showcasing.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">HTML5</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">CSS3</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Portfolio Website" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold bg-purple-100 text-purple-800 rounded-full mb-2">Portfolio</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Jessica Marie Photography</h3>
+                        <p class="text-gray-600 mb-4">
+                            A stunning portfolio website for a professional photographer with gallery and contact form.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">HTML5</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">CSS3</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">Lightbox</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition duration-300">
+                    Ready to start your project?
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6 bg-gradient-to-b from-green-50 to-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Get In Touch</h2>
+                    <p class="text-gray-600 mb-8">
+                        Have a project in mind or want to discuss how we can help your business in 2025? Reach out using the form or contact details below.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fas fa-envelope text-green-700"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-800">Email Us</h3>
+                                <p class="text-gray-600">tiwaige@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fab fa-whatsapp text-green-700"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-800">WhatsApp</h3>
+                                <p class="text-gray-600">+234 906 050 4543</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-green-700"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-800">Location</h3>
+                                <p class="text-gray-600">Based in Nigeria, serving clients worldwide</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-white p-8 rounded-xl shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300" placeholder="Your name">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300" placeholder="you@example.com">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300" placeholder="Project details">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300" placeholder="Tell us about your project"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full px-6 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition duration-300 flex items-center justify-center">
+                            Send Message
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <a href="#home" class="flex items-center space-x-2">
+                        <span class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white font-bold">T</span>
+                        <span class="text-2xl font-bold text-white">Tiwa Web Design</span>
+                    </a>
+                    <p class="mt-4 text-gray-400 max-w-md">
+                        Professional web development services helping businesses thrive in 2025's digital landscape.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Navigation</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                            <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                            <li><a href="#portfolio" class="text-gray-400 hover:text-white transition">Portfolio</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Services</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Web Design</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Responsive Development</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">UI/UX Design</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition">Maintenance</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    &copy; 2025 Tiwa Web Design. All rights reserved.
+                </p>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
